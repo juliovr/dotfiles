@@ -1,43 +1,44 @@
-set title 	" Muestra el nombre del archivo en la ventana de la terminal
-set number 	" Muestra los números de las líneas
+set title 	" Show filename in terminal window
+set number 	" Show line numbers
 set mouse=a " Mouse integration
 
-" Indentación a 2 espacios
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set shiftround
-set expandtab 	" Insertar espacios en lugar de <Tab>s
+set expandtab 	" Insert spaces for tabs
 
-set ignorecase  " Ignorar mayúsculas al hacer una búsqueda
-set smartcase  " No ignorar mayúsculas si la palabra a buscar contiene mayúsculas
+set ignorecase  " Ignore uppercase in search 
+set smartcase  " Only ignore uppercase if the text has no uppercase letters
 
 set encoding=utf-8
 
 set autoread " automatically reload files upon change outside VIM
 
-let g:mapleader = ' '  " Definir espacio como la tecla líder
-nnoremap <leader>s :w<CR>  " Guardar con <líder> + s
+let g:mapleader = ' '  " Space as leader key
 
-" Usar <líder> + y para copiar al portapapeles
+" Save using <leader> + s
+nnoremap <leader>s :w<CR>
+
+" <líder> + y to copy to the clipboard
 vnoremap <leader>c "+y
 nnoremap <leader>c "+y
 
-" Usar <líder> + d para cortar al portapapeles
+" <líder> + d to cut to the clipboard
 vnoremap <leader>x "+d
 nnoremap <leader>x "+d
 
-" Usar <líder> + v para pegar desde el portapapeles
+" <líder> + v to paste from the clipboard
 nnoremap <leader>v "+p
 vnoremap <leader>v "+p
 
-" Moverse al buffer siguiente con <líder> + l
+" Next buffer
 nnoremap <leader>l :bnext<CR>
 
-" Moverse al buffer anterior con <líder> + j
+" Previous buffer
 nnoremap <leader>h :bprevious<CR>
 
-" Cerrar el buffer actual con <líder> + q
+" Close current buffer
 nnoremap <leader>q :bdelete<CR>
 
 " Commenting blocks of code.
@@ -74,6 +75,10 @@ let g:go_auto_sameids = 1
 
 " Show method definitions automatically every 800ms (default)
 let g:go_auto_type_info = 1
+
+" Go build and run using leader b and r
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
 " ===============================================
 " end GO
