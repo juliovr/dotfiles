@@ -79,6 +79,7 @@ let g:go_auto_type_info = 1
 " Go build and run using leader b and r
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 " ===============================================
 " end GO
