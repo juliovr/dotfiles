@@ -86,11 +86,13 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
 
 " ==============================================
-" Plugins
+" Plugins vim-plug
+" Install plugins using :PlugInstall
 " ==============================================
 call plug#begin('~/.config/nvim/plugins')
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'preservim/nerdtree'
 
 " Initialize plugin system
 call plug#end()
