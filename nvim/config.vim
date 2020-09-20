@@ -9,10 +9,10 @@ set ignorecase  " Ignore uppercase in search
 set smartcase  " Only ignore uppercase if the text has no uppercase letters
 set encoding=utf-8
 set autoread " automatically reload files upon change outside VIM
+set mouse=a
 set clipboard+=unnamedplus
 
 let g:mapleader = ' '  " Space as leader key
-let g:loaded_clipboard_provider = 0
 
 " Save using <leader> + s
 nnoremap <leader>s :w<CR>
