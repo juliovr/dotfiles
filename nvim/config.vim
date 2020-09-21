@@ -12,6 +12,7 @@ set encoding=utf-8
 set autoread " automatically reload files upon change outside VIM
 set mouse=a
 set clipboard+=unnamedplus
+set cursorline
 
 let g:mapleader = ' '  " Space as leader key
 
