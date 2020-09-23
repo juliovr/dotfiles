@@ -4,3 +4,4 @@ source $HOME/.config/nvim/themes/onedark.vim
 
 source $HOME/.config/nvim/go.vim
 source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/fzf.vim

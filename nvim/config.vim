@@ -41,6 +41,19 @@ nnoremap <leader>h :bprevious<CR>
 nnoremap <leader>q :bdelete<CR>
 
 " Commenting blocks of code.
+" augroup commenting_blocks_of_code
+"   autocmd!
+"   autocmd FileType c,cpp,java,scala,go  let b:comment_leader = '// '
+"   autocmd FileType sh,ruby,python       let b:comment_leader = '# '
+"   autocmd FileType conf,fstab           let b:comment_leader = '# '
+"   autocmd FileType tex                  let b:comment_leader = '% '
+"   autocmd FileType mail                 let b:comment_leader = '> '
+"   autocmd FileType vim                  let b:comment_leader = '" '
+" augroup END
+" noremap <silent> cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+" noremap <silent> cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+
 augroup commenting_blocks_of_code
   autocmd!
   autocmd FileType c,cpp,java,scala,go  let b:comment_leader = '// '
@@ -50,6 +63,22 @@ augroup commenting_blocks_of_code
   autocmd FileType mail                 let b:comment_leader = '> '
   autocmd FileType vim                  let b:comment_leader = '" '
 augroup END
-noremap <silent> cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
+function! Docomment ()
+  "make comments on all the lines we've grabbed
+  execute '''<,''>s/^\s*/&'.escape(b:comment_leader, '\/').' /e'
+endfunction
+function! Uncomment ()
+  "uncomment on all our lines
+  execute '''<,''>s/\v(^\s*)'.escape(b:comment_leader, '\/').'\v\s*/\1/e'
+endfunction
+function! Comment ()
+  "does the first line begin with a comment?
+  let l:line=getpos("'<")[1]
+  "if there's a match
+  if match(getline(l:line), '^\s*'.b:comment_leader)>-1
+    call Uncomment()
+  else
+    call Docomment()
+  endif
+endfunction
+vnoremap <silent> cc :<C-u>call Comment()<cr><cr>
