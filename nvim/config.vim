@@ -1,6 +1,5 @@
 set title       " Show filename in terminal window
 set number      " Show current line number
-set relativenumber " Show relative line number
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
