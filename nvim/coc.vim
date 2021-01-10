@@ -62,6 +62,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Explorer
-nmap <space>e :CocCommand explorer<CR>
-nmap <space>f :CocCommand explorer --preset floating<CR>
+"  nmap <space>e :CocCommand explorer<CR>
+nmap <space>e :CocCommand explorer --preset floating<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif

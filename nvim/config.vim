@@ -12,8 +12,12 @@ set autoread " automatically reload files upon change outside VIM
 set mouse=a
 set clipboard+=unnamedplus
 set cursorline
+set guicursor=n-i-v-c:block-nCursor
 
 let g:mapleader = ' '  " Space as leader key
+
+" Map Ctrl-Backspace to delete the previous word in insert mode.
+imap <C-BS> <C-W>
 
 " Save using <leader> + s
 nnoremap <leader>s :w<CR>
@@ -39,19 +43,7 @@ nnoremap <leader>h :bprevious<CR>
 " Close current buffer
 nnoremap <leader>q :bdelete<CR>
 
-" Commenting blocks of code.
-" augroup commenting_blocks_of_code
-"   autocmd!
-"   autocmd FileType c,cpp,java,scala,go  let b:comment_leader = '// '
-"   autocmd FileType sh,ruby,python       let b:comment_leader = '# '
-"   autocmd FileType conf,fstab           let b:comment_leader = '# '
-"   autocmd FileType tex                  let b:comment_leader = '% '
-"   autocmd FileType mail                 let b:comment_leader = '> '
-"   autocmd FileType vim                  let b:comment_leader = '" '
-" augroup END
-" noremap <silent> cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-" noremap <silent> cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
+nnoremap <leader>. :e 
 
 augroup commenting_blocks_of_code
   autocmd!
