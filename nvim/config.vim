@@ -34,11 +34,15 @@ nnoremap <leader>x "+d
 nnoremap <leader>v "+p
 vnoremap <leader>v "+p
 
+nnoremap <C-TAB> :b#<CR>
+
 " Next buffer
 nnoremap <leader>l :bnext<CR>
+nnoremap <C-l> :bnext<CR>
 
 " Previous buffer
 nnoremap <leader>h :bprevious<CR>
+nnoremap <C-h> :bprevious<CR>
 
 " Close current buffer
 nnoremap <leader>q :bdelete<CR>
