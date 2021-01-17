@@ -49,6 +49,10 @@ nnoremap <leader>q :bdelete<CR>
 
 nnoremap <leader>. :e 
 
+" Indent with TAB and SHIFT-TAB
+vnoremap <TAB> >gv
+vnoremap <S-TAB> <gv
+
 augroup commenting_blocks_of_code
   autocmd!
   autocmd FileType c,cpp,java,scala,go  let b:comment_leader = '// '
