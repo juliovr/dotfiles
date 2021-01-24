@@ -53,6 +53,21 @@ nnoremap <leader>. :e
 vnoremap <TAB> >gv
 vnoremap <S-TAB> <gv
 
+" Autoclose
+" inoremap " ""<left>
+" inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+
+inoremap [ []<left>
+inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+
+inoremap { {}<left>
+inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+
+inoremap {<CR> {<CR>}<ESC>O
+
+
 augroup commenting_blocks_of_code
   autocmd!
   autocmd FileType c,cpp,java,scala,go  let b:comment_leader = '// '
