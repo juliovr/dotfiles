@@ -54,14 +54,6 @@ vnoremap <TAB> >gv
 vnoremap <S-TAB> <gv
 
 " Autoclose
-" inoremap " ""<left>
-" inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
-
-inoremap [ []<left>
-inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
-
 inoremap { {}<left>
 inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
 
