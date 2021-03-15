@@ -14,6 +14,9 @@ set clipboard+=unnamedplus
 set cursorline
 set guicursor=n-i-v-c:block-nCursor
 
+inoremap <C-g> <ESC>
+vnoremap <C-g> <ESC>
+
 let g:mapleader = ' '  " Space as leader key
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
