@@ -9,6 +9,8 @@
         helm))
 (package-initialize)
 
+(setenv "PATH" (concat (getenv "PATH")))
+
 ; fetch the list of packages available 
 (unless package-archive-contents
   (package-refresh-contents))
@@ -127,13 +129,17 @@
 (electric-pair-mode 1)
 (setq electric-pair-preserve-balance nil)
 
+
+(load-file "~/.emacs.d/lsp-go.el")
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(helm-xref lsp-mode zenburn-theme yaml-mode tuareg toml-mode tide smex scala-mode rust-mode racket-mode qml-mode purescript-mode proof-general powershell php-mode paredit org-cliplink nix-mode nim-mode nginx-mode nasm-mode multiple-cursors move-text markdown-mode magit love-minor-mode kotlin-mode js2-mode jinja2-mode ido-completing-read+ hindent helm-ls-git helm-git-grep helm-cmd-t haskell-mode gruber-darker-theme graphviz-dot-mode go-mode glsl-mode elpy editorconfig dockerfile-mode dash-functional d-mode csharp-mode cmake-mode clojure-mode ag)))
+   '(grails-mode ggo-mode helm-xref lsp-mode zenburn-theme yaml-mode tuareg toml-mode tide smex scala-mode rust-mode racket-mode qml-mode purescript-mode proof-general powershell php-mode paredit org-cliplink nix-mode nim-mode nginx-mode nasm-mode multiple-cursors move-text markdown-mode magit love-minor-mode kotlin-mode js2-mode jinja2-mode ido-completing-read+ hindent helm-ls-git helm-git-grep helm-cmd-t haskell-mode gruber-darker-theme graphviz-dot-mode go-mode glsl-mode elpy editorconfig dockerfile-mode dash-functional d-mode csharp-mode cmake-mode clojure-mode ag)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
